@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://selahattinpeltek46-sudo.github.io/babacan-mobilya/sitemap.xml
