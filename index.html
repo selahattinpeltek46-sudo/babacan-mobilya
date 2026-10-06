@@ -198,6 +198,16 @@
   .photo-cta-inner p.lede { max-width: 52ch; margin: 1rem auto 0; color: var(--gray); font-size: 1.02rem; }
   .photo-cta-inner .hero-ctas { margin-top: 1.8rem; }
 
+  /* Siz hangi ihtiyaçtasınız */
+  .segment-head { max-width: 46ch; margin: 0 auto 3rem; text-align: center; }
+  .segment-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 500; margin-top: 0.8rem; }
+  .segment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+  .segment-item { background: var(--ivory); padding: 2.2rem 1.6rem; display: flex; flex-direction: column; }
+  .segment-item h3 { font-size: 1.25rem; font-weight: 500; margin-bottom: 0.7rem; }
+  .segment-item p { font-size: 0.88rem; color: var(--gray); flex-grow: 1; margin: 0 0 1.4rem; }
+  .segment-item a { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; text-decoration: none; border-bottom: 1px solid var(--hair); padding-bottom: 0.15rem; align-self: flex-start; }
+  .segment-item a:hover { color: var(--wood); border-color: var(--wood); }
+
   /* Neden Özel Ölçü */
   .why-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4rem; align-items: start; }
   .why-grid h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 500; line-height: 1.2; }
@@ -231,7 +241,7 @@
   .story-head p.sub { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.2rem; color: rgba(243,240,233,0.7); margin-top: 0.6rem; }
   .story-steps { display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 2.75rem; }
   .story-step { border-left: 1px solid rgba(243,240,233,0.18); padding: 0 1.75rem; }
-  .story-step:first-child, .story-step:nth-child(4) { border-left: none; padding-left: 0; }
+  .story-step:first-child, .story-step:nth-child(4), .story-step:nth-child(7) { border-left: none; padding-left: 0; }
   .story-step .num { font-family: "Cormorant Garamond", serif; font-size: 2.1rem; font-weight: 500; color: var(--wood); }
   .story-step h4 { font-size: 1.05rem; font-weight: 600; color: #fff; margin: 0.6rem 0 0.5rem; letter-spacing: 0.03em; }
   .story-step p { font-size: 0.86rem; color: rgba(243,240,233,0.68); margin: 0; }
@@ -253,7 +263,8 @@
   .detail-mini-item { aspect-ratio: 1/1; overflow: hidden; border-radius: 2px; }
   .detail-mini-item .crop { width: 100%; height: 100%; background-size: 220%; background-repeat: no-repeat; transition: transform 0.5s ease; }
   .detail-mini-item:hover .crop { transform: scale(1.06); }
-  .detail-mini-cap { margin-top: 0.6rem; font-size: 0.78rem; color: var(--gray); }
+  .detail-mini-cap { margin-top: 0.6rem; font-size: 0.86rem; font-weight: 600; color: var(--charcoal); }
+  .detail-mini-why { margin-top: 0.3rem; font-size: 0.76rem; color: var(--gray); line-height: 1.5; }
 
   /* Çalışmalarımız */
   .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
@@ -338,6 +349,7 @@
     .intro-art { order: -1; }
     .detail-grid { grid-template-columns: 1fr; gap: 2rem; }
     .why-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .segment-grid { grid-template-columns: 1fr 1fr; }
     .story-steps { grid-template-columns: 1fr 1fr; row-gap: 2.5rem; }
     .story-step { border-left: none !important; padding-left: 0 !important; }
     .work-grid { grid-template-columns: 1fr 1fr; }
@@ -353,6 +365,7 @@
     .trust-bar-row > div { border-left: none; padding-left: 0; }
     .prod-grid { grid-template-columns: 1fr; }
     .work-grid { grid-template-columns: 1fr; }
+    .segment-grid { grid-template-columns: 1fr; }
     .detail-mini-grid { gap: 0.6rem; }
     .story-steps { grid-template-columns: 1fr; row-gap: 2rem; }
     .story-step { border-left: none; padding-left: 0; border-top: 1px solid rgba(243,240,233,0.18); padding-top: 1.4rem; }
@@ -439,17 +452,49 @@
       <a class="btn btn-light-solid js-wa" data-wa-msg="Merhaba, Babacan Mobilya web sitesinden ulaşıyorum. Projemi konuşmak istiyorum. Alanımın fotoğrafını gönderebilirim." href="https://wa.me/905056088235" target="_blank" rel="noopener">Projenizi Konuşalım</a>
       <a class="btn btn-light" href="#calismalarimiz">Gerçek Projeleri İnceleyin</a>
     </div>
+    <p style="margin-top:1.1rem;font-size:0.82rem;color:rgba(255,255,255,0.75);">Alanınızın fotoğrafını WhatsApp'tan göndererek başlayabilirsiniz.</p>
   </div>
 </div>
 
 <div class="trust-bar reveal">
   <div class="container trust-bar-row">
-    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><div><div class="tb-h">Özel Ölçü</div><div class="tb-p">Alanınıza ve kullanımınıza göre planlıyoruz.</div></div></div>
-    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h4l2-7 4 14 2-7h8"/></svg></span><div><div class="tb-h">Üretim</div><div class="tb-p">Projeyi kendi üretim sürecimizle takip ediyoruz.</div></div></div>
-    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.2-3.2a4 4 0 0 1-5.6 5.6L6.3 20.7a2 2 0 0 1-2.8-2.8L12.5 9a4 4 0 0 1 5.6-5.6l-3.3 3.2z"/></svg></span><div><div class="tb-h">İşçilik</div><div class="tb-p">Kaliteyi detaylarda göstermeye önem veriyoruz.</div></div></div>
-    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M3 9h6"/></svg></span><div><div class="tb-h">Montaj</div><div class="tb-p">Üretim sonrası uygulama ve montaj sürecini tamamlıyoruz.</div></div></div>
+    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 11l3 3L22 4M2 12a10 10 0 1 0 3-7"/></svg></span><div><div class="tb-h">Gerçekçi Planlama</div><div class="tb-p">Yapabileceğimiz işi, gerçekçi bir şekilde planlıyoruz.</div></div></div>
+    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><div><div class="tb-h">Özel Ölçü</div><div class="tb-p">Alanınıza ve ihtiyacınıza göre çözümler üretiyoruz.</div></div></div>
+    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h4l2-7 4 14 2-7h8"/></svg></span><div><div class="tb-h">Üretim + Montaj</div><div class="tb-p">Projeyi üretimden uygulamaya kadar takip ediyoruz.</div></div></div>
+    <div><span class="tb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.2-3.2a4 4 0 0 1-5.6 5.6L6.3 20.7a2 2 0 0 1-2.8-2.8L12.5 9a4 4 0 0 1 5.6-5.6l-3.3 3.2z"/></svg></span><div><div class="tb-h">İşçilik</div><div class="tb-p">Detayların, ortaya çıkan işin kalitesini belirlediğine inanıyoruz.</div></div></div>
   </div>
 </div>
+
+<section class="section-tight" aria-labelledby="segment-h">
+  <div class="container">
+    <div class="segment-head reveal">
+      <p class="eyebrow">Size Uygun Başlangıç</p>
+      <h2 id="segment-h">Siz hangi ihtiyaçtasınız?</h2>
+    </div>
+    <div class="segment-grid reveal">
+      <div class="segment-item">
+        <h3>Yeni Ev Yapıyorum</h3>
+        <p>Yeni eviniz için mutfak, gardırop, vestiyer ve diğer mobilya ihtiyaçlarınızı birlikte planlayalım.</p>
+        <a class="js-wa" data-wa-msg="Merhaba, yeni ev yapıyorum. Mutfak, gardırop ve diğer mobilya ihtiyaçlarım için bilgi almak istiyorum." href="https://wa.me/905056088235" target="_blank" rel="noopener">Evim İçin Çözüm İstiyorum →</a>
+      </div>
+      <div class="segment-item">
+        <h3>Evimi Yeniliyorum</h3>
+        <p>Mevcut alanınızı daha kullanışlı hale getirecek çözümleri değerlendirelim.</p>
+        <a class="js-wa" data-wa-msg="Merhaba, evimi yeniliyorum. Mevcut alanım için mobilya çözümü hakkında bilgi almak istiyorum." href="https://wa.me/905056088235" target="_blank" rel="noopener">Alanımı Değerlendirelim →</a>
+      </div>
+      <div class="segment-item">
+        <h3>Özel Ölçü İhtiyacım Var</h3>
+        <p>Hazır mobilyanın uymadığı alanlar için ölçünüze göre çözüm üretelim.</p>
+        <a class="js-wa" data-wa-msg="Merhaba, standart mobilyanın uymadığı bir alanım var. Özel ölçü çözüm hakkında bilgi almak istiyorum." href="https://wa.me/905056088235" target="_blank" rel="noopener">Özel Ölçü Konuşalım →</a>
+      </div>
+      <div class="segment-item">
+        <h3>Sadece Fiyat Araştırıyorum</h3>
+        <p>Fiyatın hangi unsurlara göre değiştiğini ve projeniz için nasıl hesaplandığını öğrenin.</p>
+        <a class="js-wa" data-wa-msg="Merhaba, fiyatlandırma hakkında bilgi almak istiyorum." href="https://wa.me/905056088235" target="_blank" rel="noopener">Bilgi Almak İstiyorum →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section-tight" aria-labelledby="karakter-h">
   <div class="container why-grid reveal">
@@ -573,17 +618,21 @@
 <section id="uretim" class="story-band" aria-labelledby="story-h">
   <div class="container reveal">
     <div class="story-head">
-      <p class="eyebrow">Nasıl Çalışıyoruz?</p>
-      <h2 id="story-h">Siz anlatın,<br>biz planlayalım.</h2>
+      <p class="eyebrow">Babacan'da Bir İş Nasıl Başlar?</p>
+      <h2 id="story-h">Siz anlatın,<br>biz birlikte planlayalım.</h2>
       <p class="sub">Müşterinin "sipariş verirsem ne olacak?" sorusunun cevabı.</p>
     </div>
     <div class="story-steps">
-      <div class="story-step"><div class="num">01</div><h4>DİNLİYORUZ</h4><p>İhtiyacınızı ve mekânınızı dinliyoruz.</p></div>
-      <div class="story-step"><div class="num">02</div><h4>ÖLÇÜYORUZ</h4><p>Alanınızı yerinde ölçüyoruz.</p></div>
-      <div class="story-step"><div class="num">03</div><h4>PLANLIYORUZ</h4><p>Ölçü ve kullanım ihtiyacına göre çözüm oluşturuyoruz.</p></div>
-      <div class="story-step"><div class="num">04</div><h4>ÜRETİYORUZ</h4><p>Tasarlanan ürünü atölyede hayata geçiriyoruz.</p></div>
-      <div class="story-step"><div class="story-step-img"><img src="images/foto (34).png" alt="Yerinde montajı süren mutfak dolabı — Babacan Mobilya Göksun" loading="lazy" decoding="async"></div><div class="num">05</div><h4>MONTAJ YAPIYORUZ</h4><p>Son dokunuşları yerinde tamamlıyoruz.</p></div>
-      <div class="story-step"><div class="num">06</div><h4>KONTROL EDİYORUZ</h4><p>Son kontrolleri yapıp projeyi teslim ediyoruz.</p></div>
+      <div class="story-step"><div class="num">01</div><h4>BİZE ULAŞIRSINIZ</h4><p>WhatsApp'tan veya telefonla iletişime geçersiniz.</p></div>
+      <div class="story-step"><div class="num">02</div><h4>İHTİYACINIZI ANLATIRSINIZ</h4><p>Mekânınızı ve ihtiyacınızı dinliyoruz.</p></div>
+      <div class="story-step"><div class="num">03</div><h4>ALANI DEĞERLENDİRİRİZ</h4><p>Alanınızı yerinde ölçüyoruz.</p></div>
+      <div class="story-step"><div class="num">04</div><h4>ÖLÇÜ VE ÇÖZÜMÜ PLANLARIZ</h4><p>Ölçü ve kullanım ihtiyacına göre çözüm oluşturuyoruz.</p></div>
+      <div class="story-step"><div class="num">05</div><h4>ÜRETİME GEÇERİZ</h4><p>Tasarlanan ürünü atölyede hayata geçiriyoruz.</p></div>
+      <div class="story-step"><div class="story-step-img"><img src="images/foto (34).png" alt="Yerinde montajı süren mutfak dolabı — Babacan Mobilya Göksun" loading="lazy" decoding="async"></div><div class="num">06</div><h4>MONTAJI TAMAMLARIZ</h4><p>Son dokunuşları yerinde tamamlıyoruz.</p></div>
+      <div class="story-step"><div class="num">07</div><h4>İŞİ KONTROL EDERİZ</h4><p>Son kontrolleri yapıp projeyi teslim ediyoruz.</p></div>
+    </div>
+    <div class="hero-ctas" style="margin-top:3rem;justify-content:center;">
+      <a class="btn btn-light-solid js-wa" data-wa-msg="Merhaba, Babacan Mobilya web sitesinden ulaşıyorum. Projemi anlatmak istiyorum." href="https://wa.me/905056088235" target="_blank" rel="noopener">WhatsApp'tan Başlayın</a>
     </div>
   </div>
 </section>
@@ -609,15 +658,18 @@
       <div class="detail-mini-grid">
         <div>
           <div class="detail-mini-item"><div class="crop" style="background-image:url('images/foto (1).png');background-position:62% 55%;" role="img" aria-label="Cam kapaklı mutfak dolabı detayı"></div></div>
-          <p class="detail-mini-cap">Cam kapak detayı</p>
+          <p class="detail-mini-cap">Cam Kapak Detayı</p>
+          <p class="detail-mini-why">Neden önemli? İçeriğin düzenli ve görünür kalmasını sağlıyor.</p>
         </div>
         <div>
           <div class="detail-mini-item"><div class="crop" style="background-image:url('images/foto (6).png');background-position:32% 0%;" role="img" aria-label="Aynalı sürgülü kapak ve kulp detayı"></div></div>
-          <p class="detail-mini-cap">Kapak ve kulp detayı</p>
+          <p class="detail-mini-cap">Kapak ve Kulp Detayı</p>
+          <p class="detail-mini-why">Neden önemli? Günlük kullanımda sürekli temas edilen bir detay; düzgün uygulamaya önem veriyoruz.</p>
         </div>
         <div>
           <div class="detail-mini-item"><div class="crop" style="background-image:url('images/foto (4).png');background-position:92% 59%;" role="img" aria-label="Ahşap panel dokusu detayı"></div></div>
-          <p class="detail-mini-cap">Ahşap panel dokusu</p>
+          <p class="detail-mini-cap">Panel Detayı</p>
+          <p class="detail-mini-why">Neden önemli? Mekânın genel görünümüyle uyumlu malzeme ve detayları birlikte değerlendiriyoruz.</p>
         </div>
       </div>
     </div>
@@ -1123,7 +1175,7 @@
       </details>
       <details>
         <summary>Fiyat nasıl belirleniyor?</summary>
-        <p>Fiyat; kullanılan malzeme, ölçü ve işçilik detaylarına göre projeye özeldir. Net bir teklif verebilmek için önce ücretsiz keşif yapıyoruz.</p>
+        <p>Mobilyanın ölçüsü, kullanılacak malzeme, tasarım, detaylar ve uygulama ihtiyaçlarına göre fiyat değişebilir. Projenizi ve alanınızı değerlendirdikten sonra size daha doğru bilgi verebiliriz. <a class="js-wa" data-wa-msg="Merhaba, fiyat teklifi almak için alanımın fotoğrafını gönderiyorum." href="https://wa.me/905056088235" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">Alanımı gönder →</a></p>
       </details>
       <details>
         <summary>Hangi malzemeler kullanılıyor?</summary>
@@ -1149,6 +1201,9 @@
         <summary>Hırdavat ürünleri satıyor musunuz?</summary>
         <p>Evet — aynı adreste mobilyanın yanı sıra yapı hırdavatı ve orman ürünleri de satıyoruz.</p>
       </details>
+    </div>
+    <div class="hero-ctas" style="margin-top:2.4rem;justify-content:center;">
+      <a class="btn btn-line js-wa" data-wa-msg="Merhaba, sorum var." href="https://wa.me/905056088235" target="_blank" rel="noopener">Sorunuzu WhatsApp'tan Sorun</a>
     </div>
   </div>
 </section>
