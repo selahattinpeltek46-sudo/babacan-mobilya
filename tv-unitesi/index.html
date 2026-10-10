@@ -228,7 +228,8 @@
   .detail-art .crop { width: 100%; height: 100%; background-size: 240%; background-repeat: no-repeat; }
   .detail-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); font-weight: 500; margin-top: 0.8rem; }
   .detail-list { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
-  .detail-list li { border-top: 1px solid var(--hair); padding-top: 1rem; }
+  .detail-list li { border-top: 1px solid var(--hair); padding-top: 1rem; padding-left: 0; border-left: 3px solid transparent; transition: padding-left 0.25s ease, border-left-color 0.25s ease; }
+  .detail-list li:hover { padding-left: 1rem; border-left-color: var(--brown); }
   .detail-list .k { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--wood-text); }
   .detail-list .v { font-size: 0.95rem; margin-top: 0.3rem; }
 
