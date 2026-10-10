@@ -231,6 +231,8 @@
   .work-category { margin-top: 3.6rem; }
   .work-category:first-of-type { margin-top: 2.6rem; }
   .work-cat-h { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.3rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--hair); }
+  .work-swipe-hint { display: none; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
+  .work-swipe-hint svg { width: 1rem; height: 1rem; flex-shrink: 0; }
 
   /* About */
   .about-wrap { text-align: center; max-width: 60ch; margin: 0 auto; }
@@ -313,7 +315,13 @@
     .trust-bar-row { grid-template-columns: 1fr; row-gap: 1.2rem; }
     .trust-bar-row > div { border-left: none; padding-left: 0; }
     .prod-grid { grid-template-columns: 1fr; }
-    .work-grid { grid-template-columns: 1fr; }
+    .work-grid {
+      display: flex; grid-template-columns: unset; overflow-x: auto; scroll-snap-type: x mandatory;
+      gap: 1rem; margin: 0 -1.75rem; padding: 0 1.75rem 0.6rem; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .work-grid::-webkit-scrollbar { display: none; }
+    .work-item { flex: 0 0 82%; scroll-snap-align: start; }
+    .work-swipe-hint { display: flex; }
     .detail-mini-grid { gap: 0.6rem; }
     .story-steps { grid-template-columns: 1fr; row-gap: 2rem; }
     .story-step { border-left: none; padding-left: 0; border-top: 1px solid rgba(245,241,233,0.18); padding-top: 1.4rem; }
@@ -398,6 +406,7 @@
 <section class="section-tight" aria-labelledby="projeler-lede">
   <div class="container-nar reveal">
     <p class="lede" id="projeler-lede" style="max-width:60ch;color:var(--gray);font-size:1.05rem;">Göksun ve çevresinde tamamladığımız gerçek projelerden bir seçki. Her biri kendi mekânının ölçüsüne göre planlandı.</p>
+    <p class="work-swipe-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M14 6l6 6-6 6"/></svg> Kaydırarak diğer projeleri görün</p>
   </div>
 </section>
 <section aria-labelledby="projeler-grid-h">
