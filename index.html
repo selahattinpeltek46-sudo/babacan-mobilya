@@ -301,6 +301,21 @@
   .work-cat-h { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.3rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--hair); }
   .work-swipe-hint { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
   .work-swipe-hint svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+  .work-scroll-wrap { position: relative; }
+  .work-nav {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+    width: 2.5rem; height: 2.5rem; border-radius: 50%; padding: 0; cursor: pointer;
+    background: var(--ivory); color: var(--charcoal); border: 1px solid var(--hair);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 16px -6px rgba(41,41,35,0.32);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+  }
+  .work-nav:hover { background: var(--brown); color: var(--ivory); border-color: var(--brown); }
+  .work-nav:active { transform: translateY(-50%) scale(0.92); }
+  .work-nav[disabled] { opacity: 0; pointer-events: none; }
+  .work-nav svg { width: 1.05rem; height: 1.05rem; pointer-events: none; }
+  .work-nav-prev { left: 0.5rem; }
+  .work-nav-next { right: 0.5rem; }
 
   /* About */
   .about-wrap { text-align: center; max-width: 60ch; margin: 0 auto; }
@@ -390,6 +405,7 @@
     .work-grid { gap: 1rem; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .work-grid::-webkit-scrollbar { display: none; }
     .work-item { flex: 0 0 82%; }
+    .work-nav { display: none !important; }
     .segment-grid { grid-template-columns: 1fr; }
     .detail-mini-grid { grid-template-columns: 1fr; gap: 1.6rem; }
     .story-steps { grid-template-columns: 1fr; row-gap: 2rem; }
@@ -1352,6 +1368,51 @@
       }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
       els.forEach(function (el) { io.observe(el); });
     }
+
+    function initWorkGalleries() {
+      document.querySelectorAll('.work-grid').forEach(function (grid) {
+        if (grid.closest('.work-scroll-wrap')) return;
+        var wrap = document.createElement('div');
+        wrap.className = 'work-scroll-wrap';
+        grid.parentNode.insertBefore(wrap, grid);
+        wrap.appendChild(grid);
+
+        var prev = document.createElement('button');
+        prev.type = 'button';
+        prev.className = 'work-nav work-nav-prev';
+        prev.setAttribute('aria-label', 'Önceki projeler');
+        prev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>';
+
+        var next = document.createElement('button');
+        next.type = 'button';
+        next.className = 'work-nav work-nav-next';
+        next.setAttribute('aria-label', 'Sonraki projeler');
+        next.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>';
+
+        wrap.appendChild(prev);
+        wrap.appendChild(next);
+
+        var minScroll = grid.scrollLeft;
+        function update() {
+          var max = grid.scrollWidth - grid.clientWidth;
+          var hasOverflow = max > 4;
+          prev.style.display = hasOverflow ? '' : 'none';
+          next.style.display = hasOverflow ? '' : 'none';
+          prev.disabled = grid.scrollLeft <= minScroll + 2;
+          next.disabled = grid.scrollLeft >= max - 2;
+        }
+        prev.addEventListener('click', function () {
+          grid.scrollBy({ left: -grid.clientWidth * 0.9, behavior: 'smooth' });
+        });
+        next.addEventListener('click', function () {
+          grid.scrollBy({ left: grid.clientWidth * 0.9, behavior: 'smooth' });
+        });
+        grid.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+      });
+    }
+    initWorkGalleries();
     document.querySelector('.hero-inner').classList.add('is-visible');
   })();
 </script>
