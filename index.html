@@ -276,8 +276,15 @@
   .detail-mini-why { margin-top: 0.3rem; font-size: 0.76rem; color: var(--gray); line-height: 1.5; }
 
   /* Çalışmalarımız */
-  .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-  .work-item { position: relative; }
+  .work-grid {
+    display: flex; gap: 1.4rem; overflow-x: auto; scroll-snap-type: x proximity;
+    margin: 0 -1.75rem; padding: 0 1.75rem 1rem; -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; scrollbar-color: var(--brown) transparent;
+  }
+  .work-grid::-webkit-scrollbar { height: 6px; }
+  .work-grid::-webkit-scrollbar-track { background: transparent; }
+  .work-grid::-webkit-scrollbar-thumb { background: var(--brown); border-radius: 3px; }
+  .work-item { position: relative; flex: 0 0 31%; scroll-snap-align: start; }
   .work-art { display: block; aspect-ratio: 4/3.3; overflow: hidden; }
   .work-art img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; display: block; }
   .work-item:hover .work-art img { transform: scale(1.05); }
@@ -289,7 +296,7 @@
   .work-category { margin-top: 3.6rem; }
   .work-category:first-of-type { margin-top: 2.6rem; }
   .work-cat-h { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.3rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--hair); }
-  .work-swipe-hint { display: none; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
+  .work-swipe-hint { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
   .work-swipe-hint svg { width: 1rem; height: 1rem; flex-shrink: 0; }
 
   /* About */
@@ -363,7 +370,7 @@
     .segment-grid { grid-template-columns: 1fr 1fr; }
     .story-steps { grid-template-columns: 1fr 1fr; row-gap: 2.5rem; }
     .story-step { border-left: none !important; padding-left: 0 !important; }
-    .work-grid { grid-template-columns: 1fr 1fr; }
+    .work-item { flex: 0 0 47%; }
     .trust-grid { grid-template-columns: 1fr; gap: 2rem; }
     .trust-bar-row { grid-template-columns: 1fr 1fr; row-gap: 1.4rem; }
     .trust-bar-row > div:nth-child(2n+1) { border-left: none; padding-left: 0; }
@@ -375,13 +382,9 @@
     .trust-bar-row { grid-template-columns: 1fr; row-gap: 1.2rem; }
     .trust-bar-row > div { border-left: none; padding-left: 0; }
     .prod-grid { grid-template-columns: 1fr; }
-    .work-grid {
-      display: flex; grid-template-columns: unset; overflow-x: auto; scroll-snap-type: x mandatory;
-      gap: 1rem; margin: 0 -1.75rem; padding: 0 1.75rem 0.6rem; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-    }
+    .work-grid { gap: 1rem; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .work-grid::-webkit-scrollbar { display: none; }
-    .work-item { flex: 0 0 82%; scroll-snap-align: start; }
-    .work-swipe-hint { display: flex; }
+    .work-item { flex: 0 0 82%; }
     .segment-grid { grid-template-columns: 1fr; }
     .detail-mini-grid { grid-template-columns: 1fr; gap: 1.6rem; }
     .story-steps { grid-template-columns: 1fr; row-gap: 2rem; }
