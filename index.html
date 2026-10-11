@@ -146,7 +146,7 @@
   .mobile-close { position: absolute; top: 1.6rem; right: 1.75rem; background: none; border: 0; font-size: 1.6rem; cursor: pointer; color: var(--charcoal); }
 
   /* Hero */
-  .hero { position: relative; height: clamp(70vh, 85vh, 92vh); display: flex; align-items: flex-end; overflow: hidden; }
+  .hero { position: relative; min-height: clamp(70vh, 85vh, 92vh); display: flex; align-items: flex-end; overflow: hidden; padding-top: 6rem; box-sizing: border-box; }
   .hero-bg { position: absolute; inset: 0; z-index: -2; }
   .hero-bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) brightness(0.58); opacity: 0; transform-origin: center; animation: heroFade 18s ease-in-out infinite, heroZoom 27s ease-in-out infinite; }
   .hero-bg img:nth-child(1) { animation-delay: 0s; }
